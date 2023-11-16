@@ -9,4 +9,9 @@ const Kangaroo_controlers= require('../controllers/Kangaroo');
 var router = express.Router();
 /* GET Kangaroos */
 router.get('/', Kangaroo_controlers.Kangaroo_view_all_Page );
+
+/* GET detail Kangaroo page */
+router.get('/detail', Kangaroo_controlers.Kangaroo_view_one_Page);
+/* GET create Kangaroo page */
+router.get('/create', Kangaroo_controlers.Kangaroo_create_Page);
 module.exports = router;

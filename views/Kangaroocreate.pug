@@ -1,0 +1,32 @@
+extends layout
+block content
+  h1= title
+  form(id='KangarooForm', action="/resource/Kangaroos", method="POST")
+    div.form-group
+      label.KangarooAttr(for='Kangaroo_color') Kangaroo_color
+      input#Kangaroo_color(type='text', name='Kangaroo_color')
+    div.form-group
+      label.KangarooAttr(for='Kangaroo_breed ') Kangaroo_breed 
+      input#Kangaroo_breed(type='text', name='Kangaroo_breed')
+    div.form-group
+      label.KangarooAttr(for='Kangaroo_price') Kangaroo_price
+      input#Kangaroo_price(type='number', name='Kangaroo_price')
+      input(type="submit")
+  script.
+    document.forms['KangarooForm'].addEventListener('submit', (event) => {
+    event.preventDefault();
+    // TODO do something here to show user that form is being submitted
+    fetch(event.target.action, {
+    method: 'POST',
+    body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+    }).then((resp) => {
+    return resp.json(); // or resp.text() or whatever the server sends
+    }).then((body) => {
+    alert("Save succeded")
+    // TODO handle body
+    }).catch((error) => {
+    // TODO handle error
+    alert("Save failed " + error )
+    });
+    });
+    

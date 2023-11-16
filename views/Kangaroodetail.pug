@@ -1,0 +1,21 @@
+extends layout
+block content
+  h1= title
+  - let Kangarooid = toShow._id
+  - let Kangaroo_color = toShow.Kangaroo_color
+  - let Kangaroo_breed = toShow.Kangaroo_breed
+  - let Kangaroo_price = toShow.Kangaroo_price
+  div
+    div.row
+      div(class='KangarooAttr mr-3') Kangaroo ID is:
+       div #{Kangarooid}
+    div.row
+       div(class='KangarooAttr mr-3') Kangaroo color is:
+       div #{Kangaroo_color}
+    div.row
+       div(class='KangarooAttr mr-3') Kangaroo breed is:
+       div #{Kangaroo_breed}
+    div.row
+      div(class='KangarooAttr mr-3') Kangaroo price is:
+      div #{Kangaroo_price}
+

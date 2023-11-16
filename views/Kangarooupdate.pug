@@ -1,0 +1,40 @@
+extends layout
+block content
+  h1= title
+  - let Kangarooid = toShow._id
+  - let Kangaroo_color = toShow.Kangaroo_color
+  - let Kangaroo_breed = toShow.Kangaroo_breed
+  - let Kangaroo_price = toShow.Kangaroo_price
+  div.row(class='mb-2')
+    div.mr-1 ID is
+      div #{Kangarooid}
+      - let actionid = "/resource/Kangaroo/" + Kangarooid
+      form(id='KangarooForm', action= actionid, method="PUT")
+        div.form-group
+          label.KangarooAttr(for='Kangaroo_color') Kangaroo color
+          input#Kangaroo_color(type='text', name='Kangaroo_color', value= Kangaroo_color  )
+        div.form-group
+          label.KangarooAttr(for='Kangaroo_breed') Kangaroo breed
+          input#Kangaroo_breed(type='text', name='Kangaroo_breed', value= Kangaroo_breed  )
+        div.form-group
+          label.KangarooAttr(for='Kangaroo_price') Kangaroo price
+          input#Kangaroo_price(type='number', name='Kangaroo_price', value= Kangaroo_price )
+          input(type="submit")
+  script.  
+    document.forms['Kangaroo Form'].addEventListener('submit', (event) => {
+    event.preventDefault();
+    // TODO do something here to show user that form is being submitted
+    fetch(event.target.action, {
+    method: 'PUT',
+    body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+    }).then((resp) => {
+    return resp.json(); // or resp.text() or whatever the server sends
+    }).then((body) => {
+    alert("Update succeded")
+    // TODO handle body
+    }).catch((error) => {
+    // TODO handle error
+    alert("Update failed " + error )
+    });
+    });
+has context menu
