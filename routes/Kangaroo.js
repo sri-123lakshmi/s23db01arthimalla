@@ -18,6 +18,7 @@ router.get('/create', Kangaroo_controlers.Kangaroo_create_Page);
 router.get('/update', Kangaroo_controlers.Kangaroo_update_Page);
 /* GET delete Kangaroo page */
 router.get('/delete', Kangaroo_controlers.Kangaroo_delete_Page);
+module.exports = router;
 
 
 module.exports = router;

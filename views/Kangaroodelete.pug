@@ -1,8 +1,8 @@
 extends layout
- 
+
 block content
   h1= title
- 
+
   if(toShow == null)
     h2 No instance to delete
   else
@@ -13,7 +13,7 @@ block content
     - let actionid = "/resource/Kangaroos/" + Kangarooid
     script let actionid = "#{actionid}"
     div
-     div.row
+     div.row 
       div(class='KangarooAttr mr-3') Kangaroo ID is:
       div #{Kangarooid}
      div.row
@@ -29,7 +29,7 @@ block content
     button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
   script.
    function cancel() {
-    window.loKangarooion.href='/Kangaroos'
+    window.location.href='/Kangaroos'
     }
   script.
     function deleteOnid() {
@@ -40,8 +40,8 @@ block content
         return resp.json();
      }).then((body) => {
         alert("Delete succeded")
-        window.loKangarooion.href='/Kangaroo'
-     }).Kangarooch((error) => {
+        window.location.href='/Kangaroo'
+     }).catch((error) => {
         alert("Delete failed " + error )
      });
     }
