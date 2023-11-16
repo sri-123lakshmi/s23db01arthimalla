@@ -14,10 +14,10 @@ router.get('/', Kangaroo_controlers.Kangaroo_view_all_Page );
 router.get('/detail', Kangaroo_controlers.Kangaroo_view_one_Page);
 /* GET create Kangaroo page */
 router.get('/create', Kangaroo_controlers.Kangaroo_create_Page);
-/* GET create update page */
+/* GET create update page */s
 router.get('/update', Kangaroo_controlers.Kangaroo_update_Page);
-/* GET delete costume page */
-router.get('/delete', costume_controlers.costume_delete_Page);
+/* GET delete Kangaroo page */
+router.get('/delete', Kangaroo_controlers.Kangaroo_delete_Page);
 
 
 module.exports = router;
