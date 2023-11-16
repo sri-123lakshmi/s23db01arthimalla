@@ -105,4 +105,19 @@ exports.Kangaroo_create_Page = function(req, res) {
     res.send(`{'error': '${err}'}`);
     }
     };
+
+// Handle building the view for updating a Kangaroo.
+// query provides the id
+exports.Kangaroo_update_Page = async function(req, res) {
+    console.log("update view for item "+req.query.id)
+    try{
+    let result = await Kangaroo.findById(req.query.id)
+    res.render('Kangarooupdate', { title: 'Kangaroo Update', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };
+    
     
