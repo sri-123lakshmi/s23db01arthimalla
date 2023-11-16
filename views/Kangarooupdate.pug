@@ -1,8 +1,8 @@
 extends layout
- 
+
 block content
   h1= title
- 
+
   if(toShow == null)
     h2 No instance to update
   else
@@ -13,7 +13,7 @@ block content
     - let actionid = "/resource/Kangaroos/" + Kangarooid
     script let actionid = "#{actionid}"
     div.row(class='mb-2')
-    div.mr-1 ID is
+    div.mr-1 ID is 
       span(style="color:red")  #{Kangarooid}
     form(id='KangarooForm', action= actionid, method="PUT")
       div.form-group
@@ -25,7 +25,7 @@ block content
       div.form-group
       div(class="row g-3 align-items-center")
         div(class="col-1")
-          label.KangarooAttr(for='Kangaroo_breed',class="col-form-label") Kangaroo Breed
+          label.KangarooAttr(for='Kangaroo_breed',class="col-form-label") Kangaroo Breed 
         div(class="col-auto")
           input#Kangaroo_breed(type='text', name='Kangaroo_breed',class="form-control", value=Kangaroo_breed)
       div.form-group
@@ -37,7 +37,7 @@ block content
       input(class="btn btn-danger m-2" type="submit")
         //- button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
       button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
-   
+    
     script.
       document.forms['KangarooForm'].addEventListener('submit', (event) => {
        event.preventDefault();
