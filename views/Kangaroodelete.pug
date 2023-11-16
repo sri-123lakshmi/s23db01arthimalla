@@ -1,0 +1,47 @@
+extends layout
+ 
+block content
+  h1= title
+ 
+  if(toShow == null)
+    h2 No instance to delete
+  else
+    - let Kangarooid = toShow._id
+    - let Kangaroo_color = toShow.Kangaroo_color
+    - let Kangaroo_breed = toShow.Kangaroo_breed
+    - let Kangaroo_price = toShow.Kangaroo_price
+    - let actionid = "/resource/Kangaroos/" + Kangarooid
+    script let actionid = "#{actionid}"
+    div
+     div.row
+      div(class='KangarooAttr mr-3') Kangaroo ID is:
+      div #{Kangarooid}
+     div.row
+      div(class='KangarooAttr mr-3') Kangaroo color is:
+      div #{Kangaroo_color}
+     div.row
+      div(class='KangarooAttr mr-3') Kangaroo breed is:
+      div #{Kangaroo_breed}
+     div.row
+      div(class='KangarooAttr mr-3') Kangaroo Price is:
+      div #{Kangaroo_price}
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
+  script.
+   function cancel() {
+    window.loKangarooion.href='/Kangaroos'
+    }
+  script.
+    function deleteOnid() {
+     console.log("starting delete")
+     fetch(actionid, {
+      method: 'DELETE'
+     }).then((resp) => {
+        return resp.json();
+     }).then((body) => {
+        alert("Delete succeded")
+        window.loKangarooion.href='/Kangaroo'
+     }).Kangarooch((error) => {
+        alert("Delete failed " + error )
+     });
+    }

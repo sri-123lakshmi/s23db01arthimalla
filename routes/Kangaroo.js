@@ -16,5 +16,8 @@ router.get('/detail', Kangaroo_controlers.Kangaroo_view_one_Page);
 router.get('/create', Kangaroo_controlers.Kangaroo_create_Page);
 /* GET create update page */
 router.get('/update', Kangaroo_controlers.Kangaroo_update_Page);
+/* GET delete costume page */
+router.get('/delete', costume_controlers.costume_delete_Page);
+
 
 module.exports = router;
