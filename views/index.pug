@@ -1,17 +1,11 @@
 extends layout
-
 block content
-  h1= title
-  p "Hi eveyone"
-  p i love to watch movies
-  <button type="button" class="btn btn-secondary">Press Me</button>
-  div#faster Increase the speed 
-  button(type="button" class="btn btn-danger" onclick="goFaster()") Go Faster
-  script. 
-    let mph = 20;
-    let change = 1;
-    function goFaster() {
-      mph = mph + change;
-      change = change + 1;
-      document.getElementById("faster").innerText = `MPH ${mph} with change ${change}`
-    }
+ if (!user)
+   a(href="/login") Login
+   br
+   a(href="/register") Register
+ if (user)
+   p You are currently logged in as #{user.username}
+   a(href="/Kangaroo") Take me to Kangaroo
+   br
+   a(href="/logout") Logout
