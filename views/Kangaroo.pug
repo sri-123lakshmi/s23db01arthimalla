@@ -2,14 +2,14 @@ extends layout
 
 block content
   h1= title
-  - let items = results
+  - let item = results
   div(class="container-fluid")
     div(class="row m-1")
       each item in results
-        - let destination1 = `dispatch("/items/update?id=${item._id}")`
-        - let destination2 = `dispatch("/items/create")`
-        - let destination3 = `dispatch("/items/detail?id=${item._id}")`
-        - let destination4 = `dispatch("/items/delete?id=${item._id}")`
+        - let destination1 = `dispatch("/Kangaroo/update?id=${item._id}")`
+        - let destination2 = `dispatch("/Kangaroo/create")`
+        - let destination3 = `dispatch("/Kangaroo/detail?id=${item._id}")`
+        - let destination4 = `dispatch("/Kangaroo/delete?id=${item._id}")`
         div(class="row-sm-2 m-1") 
           | color : #{item.Kangaroo_color}, 
           | breed : #{item.Kangaroo_breed}, 
