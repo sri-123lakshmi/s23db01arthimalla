@@ -20,13 +20,13 @@ const secured = (req, res, next) => {
 router.get('/', Kangaroo_controlers.Kangaroo_view_all_Page );
 
 /* GET detail Kangaroo page */
-router.get('/detail', Kangaroo_controlers.Kangaroo_view_one_Page);
+router.get('/detail',secured, Kangaroo_controlers.Kangaroo_view_one_Page);
 /* GET create Kangaroo page */
-router.get('/create', Kangaroo_controlers.Kangaroo_create_Page);
+router.get('/create',secured, Kangaroo_controlers.Kangaroo_create_Page);
 /* GET create update page */
 router.get('/update',secured,  Kangaroo_controlers.Kangaroo_update_Page);
 /* GET delete Kangaroo page */
-router.get('/delete', Kangaroo_controlers.Kangaroo_delete_Page);
+router.get('/delete',secured, Kangaroo_controlers.Kangaroo_delete_Page);
 module.exports = router;
 
 
